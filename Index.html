@@ -1,0 +1,36 @@
+// Good practice for your load function
+window.onload = () => {
+  const saved = localStorage.getItem("requests");
+  if (saved) {
+    requestCount = parseInt(saved, 10); // Ensures it's treated as a number
+    document.getElementById("reqCount").innerText = requestCount;
+  }
+};# Initialize the repository
+git init
+
+# Add all your files (index.html, etc.)
+git add .
+
+# Commit the changes
+git commit -m "Initial commit: AI Agent Dashboard UI"
+
+# Link your local folder to GitHub
+git remote add origin https://github.com/your-username/ai-agent-dashboard.git
+
+# Rename branch to main
+git branch -M main
+
+# Push your code to the cloud
+git push -u origin main
+// Example: Using GitHub API to fetch repo stats
+import { Octokit } from "octokit";
+
+const octokit = new Octokit({ auth: 'YOUR_PERSONAL_ACCESS_TOKEN' });
+
+async function getRepoData() {
+  const { data } = await octokit.request('GET /repos/{owner}/{repo}', {
+    owner: 'MuhammdNisar',
+    repo: 'ai-agent-dashboard'
+  });
+  console.log(data.stargazers_count);
+}
